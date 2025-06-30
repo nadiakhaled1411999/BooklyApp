@@ -5,8 +5,6 @@ import 'package:bookly_app/constants.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -26,13 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     navigationToHome();
   }
 
-  void navigationToHome() {
-     Future.delayed(const Duration(seconds: 1), () {
-      Get.to(() => const HomeView(),
-          transition: Transition.leftToRight,
-          duration: kTransitionDuration);
-    });
-  }
+
 
   @override
   void dispose() {
@@ -69,5 +61,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
       curve: Curves.easeOut,
     ));
     animationController.forward();
+  }
+void navigationToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const HomeView(),
+          transition: Transition.fadeIn, duration: kTransitionDuration);
+    });
   }
 }
