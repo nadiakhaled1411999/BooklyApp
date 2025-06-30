@@ -1,5 +1,6 @@
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/featured_list_view_item.dart';
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,7 +11,8 @@ class HomeViewBody extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.all(14),
       child: Column(
-        children: [CustomAppBar(), FeaturedBooksListView()],
+        children: [CustomAppBar(), FeaturedBooksListView(),
+        Text("Best Seller",style: Styles.titleMedium,)],
       ),
     );
   }
