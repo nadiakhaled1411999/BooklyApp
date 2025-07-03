@@ -24,7 +24,7 @@ class BookRating extends StatelessWidget {
         Text(
           "(2455)",
           style: Styles.textStyle14.copyWith(
-            color: const Color(0xff707070),
+            color: const Color(0xff7f7f7f),
             fontWeight: FontWeight.w600,
           ),
         ),
