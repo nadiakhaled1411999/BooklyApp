@@ -9,7 +9,7 @@ abstract class Styles {
       fontSize: 20,
       fontWeight: FontWeight.normal
       ,
- fontFamily: kGtSectraFineFontFamily,
+
       );
   static const textStyle30 = TextStyle(
     fontSize: 30,
