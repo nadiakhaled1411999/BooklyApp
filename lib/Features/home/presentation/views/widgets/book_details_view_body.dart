@@ -11,7 +11,10 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Padding(
+    return CustomScrollView(slivers: [
+
+SliverFillRemaining( hasScrollBody: false,
+  child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
@@ -41,11 +44,50 @@ class BookDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 37,
           ),
-          const BooksAction()
+          const BooksAction(),
+          const Expanded(
+            child: SizedBox(height: 50),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text("you can also like",
+                style: Styles.textStyle14.copyWith(
+                  fontWeight: FontWeight.w600,
+                )),
+          ),
+   const SizedBox(
+            height: 16,
+          )
+          ,const SimilarBooksListView(),
+          const SizedBox(
+            height: 40,
+          ),
         ],
       ),
-    );
+    ) ,),
+    ],);
+
   }
 }
 
+class SimilarBooksListView extends StatelessWidget {
+  const SimilarBooksListView({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.15,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 5,
+              ),
+              child: CustomBookImage(),
+            );
+          }),
+    );
+  }
+}
