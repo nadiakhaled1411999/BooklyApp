@@ -8,13 +8,12 @@ class SimilarBooksSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("you can also like",
-              style: Styles.textStyle14.copyWith(
-                fontWeight: FontWeight.w600,
-              )),
-
+            style: Styles.textStyle14.copyWith(
+              fontWeight: FontWeight.w600,
+            )),
         const SizedBox(
           height: 16,
         ),

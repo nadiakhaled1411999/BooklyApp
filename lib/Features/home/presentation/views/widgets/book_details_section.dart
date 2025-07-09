@@ -42,5 +42,3 @@ class BookDetailsSection extends StatelessWidget {
     );
   }
 }
-
-
