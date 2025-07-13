@@ -12,7 +12,7 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
+        path: '/',//!لازم اول مسار يبقا  اسلاش بس اللي هي دي   (/)
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
