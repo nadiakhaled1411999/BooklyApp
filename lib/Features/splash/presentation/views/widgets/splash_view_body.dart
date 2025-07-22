@@ -2,7 +2,6 @@
 import 'package:bookly_app/Features/splash/presentation/views/widgets/sliding_image.dart';
 import 'package:bookly_app/Features/splash/presentation/views/widgets/sliding_logo.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
