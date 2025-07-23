@@ -7,26 +7,29 @@ import 'package:dio/dio.dart';
 
 class SearchRepoImpl implements SearchRepo {
   final ApiService apiService;
-  SearchRepoImpl({required this.apiService});
+  SearchRepoImpl(this.apiService);
   @override
   Future<Either<Failure, List<BookModel>>> fetchSearchResult(
       {required String search}) async {
-try{
-var data = await apiService.get(
-        endPoint: "volumes?Filtering=free-ebooks&q=$search");
-List<BookModel> books=[];
-for(var item in data["items"]){
-books.add(BookModel.fromJson( item));
-}
-return Right(books);
-}   catch(e){
-  if (e is DioException) {
+    try {
+      var data = await apiService.get(
+          endPoint: 'volumes?Filtering=free-ebooks&q=$search');
+      List<BookModel> books = [];
+      for (var item in data["items"]) {
+        books.add(BookModel.fromJson(item));
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
         return left(ServerFailure.fromDioExceptionError(e));
-}else{
-return left(ServerFailure(e.toString()));
-}
-}
-}
-
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
   }
+}
 
+//  List<BookModel> books = (data['items'] as List)
+//           .where((item) => item['saleInfo']['saleability'] != 'NOT_FOR_SALE')
+//           .map((item) => BookModel.fromJson(item))
+//           .toList();

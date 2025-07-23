@@ -1,3 +1,6 @@
+import 'package:bookly_app/Features/search/data/repos/search_repo.dart';
+import 'package:bookly_app/Features/search/data/repos/search_repo_impl.dart';
+import 'package:bookly_app/Features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/core/utils/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly_app/Features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
@@ -27,13 +30,16 @@ abstract class AppRouter {
       GoRoute(
         path: bookDetailsView,
         builder: (context, state) => BlocProvider(
-          create: (context) =>SimilarBooksCubit(getIt.get<HomeRepoImpl>() ),
-          child: BookDetailsView(  bookModel:state.extra  as BookModel),
+          create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImpl>()),
+          child: BookDetailsView(bookModel: state.extra as BookModel),
         ),
       ),
       GoRoute(
         path: searchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchCubit(searchRepo: getIt.get<SearchRepoImpl>()),
+          child:  SearchView(),
+        ),
       ),
     ],
   );
