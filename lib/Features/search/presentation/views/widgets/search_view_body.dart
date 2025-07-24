@@ -2,33 +2,34 @@ import 'package:bookly_app/Features/search/presentation/views/widgets/custom_sea
 import 'package:bookly_app/Features/search/presentation/views/widgets/search_result_list_view.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:redacted/redacted.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          const SizedBox(
+          SizedBox(
             height: 15,
           ),
           CustomSearchTextField(),
-          const SizedBox(
-            height: 16,
+          SizedBox(
+            height: 20,
           ),
-          const Align(
+          Align(
               alignment: Alignment.topLeft,
               child: Text(
                 "Search Result",
                 style: Styles.textStyle18,
               )),
-          const SizedBox(
+          SizedBox(
             height: 16,
           ),
-          const Expanded(child: SearchResultListView())
+          Expanded(child: SearchResultListView())
         ],
       ),
     );

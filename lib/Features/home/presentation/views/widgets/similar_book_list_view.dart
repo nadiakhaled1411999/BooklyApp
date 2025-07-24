@@ -2,6 +2,7 @@ import 'package:bookly_app/Features/home/presentation/manager/similar_books_cubi
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/core/utils/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/utils/widgets/custom_loading_indicator.dart';
+import 'package:bookly_app/core/utils/widgets/custom_loading_list_view/horizontal_loading_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +36,7 @@ class SimilarBooksListView extends StatelessWidget {
             errorMessage: state.errorMessage,
           );
         } else {
-          return const CustomLoadingIndicator();
+          return const HorizontalLoadingListView(itemHeight: 0.15);
         }
       },
     );

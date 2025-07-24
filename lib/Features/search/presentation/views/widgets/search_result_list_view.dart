@@ -1,8 +1,10 @@
 import 'package:bookly_app/Features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/newest_books_list_view_item.dart';
 import 'package:bookly_app/core/utils/widgets/custom_error_widget.dart';
+import 'package:bookly_app/core/utils/widgets/custom_loading_list_view/vertical_loading_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:redacted/redacted.dart';
 
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({super.key});
@@ -23,7 +25,7 @@ class SearchResultListView extends StatelessWidget {
       } else if (state is SearchFailureState) {
         return CustomErrorWidget(errorMessage: state.errorMessage);
       } else {
-        return   const Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       }
     });
   }

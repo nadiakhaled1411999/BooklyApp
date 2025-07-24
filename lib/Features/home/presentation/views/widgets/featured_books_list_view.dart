@@ -2,7 +2,8 @@ import 'package:bookly_app/Features/home/presentation/manager/featured_books_cub
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/widgets/custom_error_widget.dart';
-import 'package:bookly_app/core/utils/widgets/custom_loading_indicator.dart';
+import 'package:bookly_app/core/utils/widgets/custom_loading_list_view/vertical_loading_list_view.dart';
+import 'package:bookly_app/core/utils/widgets/custom_loading_list_view/horizontal_loading_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +38,7 @@ child:  CustomBookImage(imageUrl:state.books[index].volumeInfo.imageLinks?.thumb
         } else if (state is FeaturedBooksFailureState) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else {
-          return const CustomLoadingIndicator();
+          return const HorizontalLoadingListView(itemHeight: 0.3);
         }
       },
     );

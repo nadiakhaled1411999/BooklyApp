@@ -12,9 +12,8 @@ class SearchCubit extends Cubit<SearchState> {
   Future<void> fetchSearchResult( {required String search}) async{
     emit(SearchLoadingState());
     var result =  await searchRepo.fetchSearchResult(search: search);
-print("Search result: $search");
-print("State: ${state.toString()}");
-   result.fold((failure) {
+
+    result.fold((failure) {
       emit(SearchFailureState(errorMessage: failure.errorMessage));
     }, (books) {
       emit(SearchSuccessState(books: books));
