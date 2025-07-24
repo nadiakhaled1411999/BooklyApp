@@ -7,7 +7,7 @@
   </intent>
 </queries>
     <application
-        android:label="bookly_app"
+        android:label="ReadBook_App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
